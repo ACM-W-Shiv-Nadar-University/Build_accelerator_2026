@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #F8F3EA;
+  --color-brand-text: #151515;
+  --color-brand-muted: #6D6A64;
+  --color-brand-orange: #BE6B24;
+  --color-brand-border: #DDD6CC;
+  --color-brand-card: #FFFDF8;
+  --color-brand-btn-dark: #171514;
+
+  --animate-spin-slow: spin-slow 20s linear infinite;
+  --animate-spin-reverse: spin-reverse 25s linear infinite;
+  --animate-pulse-subtle: pulse-subtle 3s ease-in-out infinite;
+
+  @keyframes spin-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes spin-reverse {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+  }
+  @keyframes pulse-subtle {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.03); }
+  }
+}
+
+:root {
+  --background: #F8F3EA;
+  --foreground: #151515;
+}
+
+/* Force light theme - no dark mode is requested */
+html {
+  background-color: #F8F3EA;
+  color: #151515;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Selection highlight */
+::selection {
+  background-color: rgba(190, 107, 36, 0.2);
+  color: #151515;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8F3EA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DDD6CC;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #BE6B24;
+}
+
+/* Utilities for retro-minimalist aesthetics */
+.border-thin {
+  border: 1px solid #DDD6CC;
+}
+
+.divider-thin {
+  height: 1px;
+  background-color: #DDD6CC;
+  width: 100%;
+}
