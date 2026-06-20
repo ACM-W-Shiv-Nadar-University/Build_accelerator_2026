@@ -83,7 +83,7 @@ export default function ProfileSubmissionCard({ weekNumber, submission }: Profil
               {submission.projectTitle}
             </h5>
             <p className="font-mono text-xs text-brand-orange mb-3">
-              Team: {submission.teamName}
+              Domain: {submission.projectDomain}
             </p>
             <p className="text-xs sm:text-sm text-brand-muted leading-relaxed font-sans">
               {submission.description}

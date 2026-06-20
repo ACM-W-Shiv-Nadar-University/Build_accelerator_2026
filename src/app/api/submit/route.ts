@@ -16,10 +16,10 @@ export async function POST(req: Request) {
     }
 
     const body = await req.json();
-    const { week, projectTitle, teamName, githubLink, prototypeLink, description } = body;
+    const { week, projectTitle, projectDomain, githubLink, prototypeLink, description } = body;
 
     // Validate fields
-    if (!week || !projectTitle || !teamName || !githubLink || !description) {
+    if (!week || !projectTitle || !projectDomain || !githubLink || !description) {
       return NextResponse.json(
         { error: "All required fields must be completed." },
         { status: 400 }
@@ -44,7 +44,7 @@ export async function POST(req: Request) {
         userEmail: session.user.email,
         week: weekNum,
         projectTitle: projectTitle.trim(),
-        teamName: teamName.trim(),
+        projectDomain: projectDomain.trim(),
         githubLink: githubLink.trim(),
         prototypeLink: prototypeLink?.trim() || "",
         description: description.trim(),

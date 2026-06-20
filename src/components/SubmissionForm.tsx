@@ -10,7 +10,7 @@ interface SubmissionFormProps {
 
 export default function SubmissionForm({ weekNumber, onSubmitSuccess }: SubmissionFormProps) {
   const [projectTitle, setProjectTitle] = useState("");
-  const [teamName, setTeamName] = useState("");
+  const [projectDomain, setProjectDomain] = useState("");
   const [githubLink, setGithubLink] = useState("");
   const [prototypeLink, setPrototypeLink] = useState("");
   const [description, setDescription] = useState("");
@@ -32,7 +32,7 @@ export default function SubmissionForm({ weekNumber, onSubmitSuccess }: Submissi
         body: JSON.stringify({
           week: weekNumber,
           projectTitle,
-          teamName,
+          projectDomain,
           githubLink,
           prototypeLink,
           description,
@@ -49,7 +49,7 @@ export default function SubmissionForm({ weekNumber, onSubmitSuccess }: Submissi
       
       // Clear form
       setProjectTitle("");
-      setTeamName("");
+      setProjectDomain("");
       setGithubLink("");
       setPrototypeLink("");
       setDescription("");
@@ -107,18 +107,18 @@ export default function SubmissionForm({ weekNumber, onSubmitSuccess }: Submissi
           />
         </div>
 
-        {/* Team/Individual Name */}
+        {/* Project Domain */}
         <div>
-          <label htmlFor="team" className="block font-mono text-[10px] tracking-wider text-brand-muted uppercase font-bold mb-2">
-            Team Name / Individual Name *
+          <label htmlFor="domain" className="block font-mono text-[10px] tracking-wider text-brand-muted uppercase font-bold mb-2">
+            Project Domain *
           </label>
           <input
-            id="team"
+            id="domain"
             type="text"
             required
-            value={teamName}
-            onChange={(e) => setTeamName(e.target.value)}
-            placeholder="e.g. Team ByteCoders or Rohan Verma"
+            value={projectDomain}
+            onChange={(e) => setProjectDomain(e.target.value)}
+            placeholder="e.g. EdTech, HealthTech, FinTech, DevTools"
             className="w-full bg-brand-bg/50 border border-brand-border rounded-lg px-4 py-2.5 text-sm font-sans focus:outline-none focus:border-brand-orange focus:bg-brand-bg transition-colors"
           />
         </div>

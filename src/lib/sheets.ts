@@ -9,7 +9,7 @@ export interface Submission {
   userEmail: string;
   week: number;
   projectTitle: string;
-  teamName: string;
+  projectDomain: string;
   githubLink: string;
   prototypeLink: string;
   description: string;
@@ -94,7 +94,7 @@ export async function getSubmissions(): Promise<Submission[]> {
       userEmail: row[2] || "",
       week: Number(row[3]) || 0,
       projectTitle: row[4] || "",
-      teamName: row[5] || "",
+      projectDomain: row[5] || "",
       githubLink: row[6] || "",
       prototypeLink: row[7] || "",
       description: row[8] || "",
@@ -162,7 +162,7 @@ export async function saveSubmission(submission: Omit<Submission, "score" | "ran
           fullSubmission.userEmail,
           fullSubmission.week,
           fullSubmission.projectTitle,
-          fullSubmission.teamName,
+          fullSubmission.projectDomain,
           fullSubmission.githubLink,
           fullSubmission.prototypeLink,
           fullSubmission.description,
@@ -199,7 +199,7 @@ export async function getLeaderboard(): Promise<LeaderboardEntry[]> {
     const email = s.userEmail.toLowerCase();
     if (!userMap[email]) {
       userMap[email] = {
-        name: s.userName || s.teamName || "Student",
+        name: s.userName || s.projectDomain || "Student",
         weekScores: { 1: 0, 2: 0, 3: 0 },
       };
     }

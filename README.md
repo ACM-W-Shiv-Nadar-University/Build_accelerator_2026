@@ -120,7 +120,7 @@ This setup uses a Google Service Account to sync project submissions from the we
      | **C** | `User Email` | Student official SNU email |
      | **D** | `Week` | Week number (1, 2, or 3) |
      | **E** | `Project Title` | Submission project title |
-     | **F** | `Team Name` | Individual/Team builder name |
+     | **F** | `Project Domain` | Main focus or domain of the project (e.g. EdTech, FinTech, AI, Health) |
      | **G** | `GitHub Link` | Git repository URL |
      | **H** | `Prototype Link` | Deployed project live URL |
      | **I** | `Description` | Project details |

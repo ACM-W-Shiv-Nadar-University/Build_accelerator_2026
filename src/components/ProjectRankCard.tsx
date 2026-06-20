@@ -76,9 +76,9 @@ export default function ProjectRankCard({ project }: { project: Submission }) {
           {project.projectTitle}
         </h4>
         
-        {/* Team Name */}
+        {/* Project Domain */}
         <p className="font-mono text-xs text-brand-orange mb-3 font-semibold">
-          {project.teamName}
+          Domain: {project.projectDomain}
         </p>
 
         {/* Description / Idea Summary */}
