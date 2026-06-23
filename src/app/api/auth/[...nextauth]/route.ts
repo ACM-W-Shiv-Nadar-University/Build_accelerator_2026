@@ -38,7 +38,7 @@ export const authOptions: NextAuthOptions = {
     signIn: "/",
     error: "/", // Redirect back to login page on authentication failure
   },
-  secret: process.env.NEXTAUTH_SECRET || "acmw-summer-build-program-secret-2026-key",
+  secret: process.env.NEXTAUTH_SECRET || "acmw-build-accelerator-secret-2026-key",
 };
 
 const handler = NextAuth(authOptions);

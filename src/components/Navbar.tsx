@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import { useState } from "react";
 import { Trophy, User, LogOut, Menu, X, Calendar, Layers } from "lucide-react";
+import Image from "next/image";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -32,14 +33,15 @@ export default function Navbar() {
         <div className="flex justify-between h-16 items-center">
           {/* Left: Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/dashboard" className="flex items-center gap-2 group">
-              <span className="font-mono text-sm tracking-widest text-brand-muted group-hover:text-brand-orange transition-colors">
-                ACM-W
-              </span>
-              <span className="h-4 w-[1px] bg-brand-border" />
-              <span className="font-sans font-bold tracking-tight text-brand-text group-hover:text-brand-orange transition-colors">
-                SUMMER BUILD
-              </span>
+            <Link href="/dashboard" className="flex items-center gap-2 group transition-all duration-300 hover:scale-[1.03]">
+              <Image
+                src="/acmw-logo.png"
+                alt="ACM-W SNIoE Logo"
+                width={130}
+                height={48}
+                className="h-12 w-auto object-contain"
+                priority
+              />
             </Link>
           </div>
 
@@ -49,14 +51,14 @@ export default function Navbar() {
               onClick={() => handleNavClick("timeline")}
               className="flex items-center gap-1.5 text-xs font-mono tracking-wider text-brand-muted hover:text-brand-text transition-colors cursor-pointer"
             >
-              <Calendar size={14} className="text-brand-orange" />
+              <Calendar size={14} className="text-brand-blue" />
               TIMELINE
             </button>
             <button
               onClick={() => handleNavClick("weeks")}
               className="flex items-center gap-1.5 text-xs font-mono tracking-wider text-brand-muted hover:text-brand-text transition-colors cursor-pointer"
             >
-              <Layers size={14} className="text-brand-orange" />
+              <Layers size={14} className="text-brand-blue" />
               WEEKS
             </button>
             
@@ -66,7 +68,7 @@ export default function Navbar() {
               href="/leaderboard"
               className={`flex items-center gap-1.5 text-xs font-mono tracking-wider transition-colors ${
                 pathname === "/leaderboard"
-                  ? "text-brand-orange font-bold"
+                  ? "text-brand-blue font-bold"
                   : "text-brand-muted hover:text-brand-text"
               }`}
             >
@@ -78,7 +80,7 @@ export default function Navbar() {
               href="/profile"
               className={`flex items-center gap-1.5 text-xs font-mono tracking-wider transition-colors ${
                 pathname === "/profile"
-                  ? "text-brand-orange font-bold"
+                  ? "text-brand-blue font-bold"
                   : "text-brand-muted hover:text-brand-text"
               }`}
             >
@@ -90,7 +92,7 @@ export default function Navbar() {
 
             <button
               onClick={() => signOut({ callbackUrl: "/" })}
-              className="flex items-center gap-1.5 text-xs font-mono tracking-wider text-brand-muted hover:text-brand-orange transition-colors border border-brand-border px-3 py-1.5 rounded-full hover:bg-brand-card cursor-pointer"
+              className="flex items-center gap-1.5 text-xs font-mono tracking-wider text-brand-muted hover:text-brand-blue transition-colors border border-brand-border px-3 py-1.5 rounded-full hover:bg-brand-card cursor-pointer"
             >
               <LogOut size={13} />
               LOGOUT
@@ -101,7 +103,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-brand-text hover:text-brand-orange p-2 focus:outline-none"
+              className="text-brand-text hover:text-brand-blue p-2 focus:outline-none"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -117,14 +119,14 @@ export default function Navbar() {
               onClick={() => handleNavClick("timeline")}
               className="flex items-center gap-3 w-full text-left px-3 py-2 text-sm font-mono tracking-wider text-brand-muted hover:text-brand-text hover:bg-brand-card rounded-md"
             >
-              <Calendar size={16} className="text-brand-orange" />
+              <Calendar size={16} className="text-brand-blue" />
               TIMELINE
             </button>
             <button
               onClick={() => handleNavClick("weeks")}
               className="flex items-center gap-3 w-full text-left px-3 py-2 text-sm font-mono tracking-wider text-brand-muted hover:text-brand-text hover:bg-brand-card rounded-md"
             >
-              <Layers size={16} className="text-brand-orange" />
+              <Layers size={16} className="text-brand-blue" />
               WEEKS
             </button>
             <Link
@@ -132,7 +134,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className={`flex items-center gap-3 w-full px-3 py-2 text-sm font-mono tracking-wider rounded-md ${
                 pathname === "/leaderboard"
-                  ? "bg-brand-orange/10 text-brand-orange"
+                  ? "bg-brand-blue/10 text-brand-blue"
                   : "text-brand-muted hover:text-brand-text hover:bg-brand-card"
               }`}
             >
@@ -144,7 +146,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className={`flex items-center gap-3 w-full px-3 py-2 text-sm font-mono tracking-wider rounded-md ${
                 pathname === "/profile"
-                  ? "bg-brand-orange/10 text-brand-orange"
+                  ? "bg-brand-blue/10 text-brand-blue"
                   : "text-brand-muted hover:text-brand-text hover:bg-brand-card"
               }`}
             >
@@ -154,7 +156,7 @@ export default function Navbar() {
             <div className="border-t border-brand-border my-2" />
             <button
               onClick={() => signOut({ callbackUrl: "/" })}
-              className="flex items-center gap-3 w-full px-3 py-2 text-sm font-mono tracking-wider text-brand-muted hover:text-brand-orange hover:bg-brand-card rounded-md"
+              className="flex items-center gap-3 w-full px-3 py-2 text-sm font-mono tracking-wider text-brand-muted hover:text-brand-blue hover:bg-brand-card rounded-md"
             >
               <LogOut size={16} />
               LOGOUT

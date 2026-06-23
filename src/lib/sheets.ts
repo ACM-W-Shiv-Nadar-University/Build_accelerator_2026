@@ -21,9 +21,9 @@ export interface Submission {
 export interface LeaderboardEntry {
   userName: string;
   userEmail: string;
-  week1Score: number | null;
   week2Score: number | null;
   week3Score: number | null;
+  week4Score: number | null;
   totalScore: number;
   rank: number;
 }
@@ -200,28 +200,28 @@ export async function getLeaderboard(): Promise<LeaderboardEntry[]> {
     if (!userMap[email]) {
       userMap[email] = {
         name: s.userName || s.projectDomain || "Student",
-        weekScores: { 1: 0, 2: 0, 3: 0 },
+        weekScores: { 2: 0, 3: 0, 4: 0 },
       };
     }
     // Record score for the respective week
-    if (s.week >= 1 && s.week <= 3) {
+    if (s.week >= 2 && s.week <= 4) {
       userMap[email].weekScores[s.week] = Math.max(userMap[email].weekScores[s.week] || 0, s.score);
     }
   });
 
   const entries: LeaderboardEntry[] = Object.keys(userMap).map((email) => {
     const data = userMap[email];
-    const w1 = data.weekScores[1] || null;
     const w2 = data.weekScores[2] || null;
     const w3 = data.weekScores[3] || null;
-    const total = (w1 || 0) + (w2 || 0) + (w3 || 0);
+    const w4 = data.weekScores[4] || null;
+    const total = (w2 || 0) + (w3 || 0) + (w4 || 0);
 
     return {
       userName: data.name,
       userEmail: email,
-      week1Score: w1,
       week2Score: w2,
       week3Score: w3,
+      week4Score: w4,
       totalScore: total,
       rank: 0, // calculated next
     };

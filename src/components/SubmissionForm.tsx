@@ -14,7 +14,7 @@ export default function SubmissionForm({ weekNumber, onSubmitSuccess }: Submissi
   const [githubLink, setGithubLink] = useState("");
   const [prototypeLink, setPrototypeLink] = useState("");
   const [description, setDescription] = useState("");
-  
+
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -46,7 +46,7 @@ export default function SubmissionForm({ weekNumber, onSubmitSuccess }: Submissi
       }
 
       setSuccessMessage("Your project has been submitted successfully.");
-      
+
       // Clear form
       setProjectTitle("");
       setProjectDomain("");
@@ -90,7 +90,7 @@ export default function SubmissionForm({ weekNumber, onSubmitSuccess }: Submissi
       )}
 
       <form onSubmit={handleSubmit} className="space-y-5">
-        
+
         {/* Project Title */}
         <div>
           <label htmlFor="title" className="block font-mono text-[10px] tracking-wider text-brand-muted uppercase font-bold mb-2">
@@ -103,7 +103,7 @@ export default function SubmissionForm({ weekNumber, onSubmitSuccess }: Submissi
             value={projectTitle}
             onChange={(e) => setProjectTitle(e.target.value)}
             placeholder="e.g. Campus Event Finder"
-            className="w-full bg-brand-bg/50 border border-brand-border rounded-lg px-4 py-2.5 text-sm font-sans focus:outline-none focus:border-brand-orange focus:bg-brand-bg transition-colors"
+            className="w-full bg-brand-bg/50 border border-brand-border rounded-lg px-4 py-2.5 text-sm font-sans focus:outline-none focus:border-brand-blue focus:bg-brand-bg transition-colors"
           />
         </div>
 
@@ -118,8 +118,8 @@ export default function SubmissionForm({ weekNumber, onSubmitSuccess }: Submissi
             required
             value={projectDomain}
             onChange={(e) => setProjectDomain(e.target.value)}
-            placeholder="e.g. EdTech, HealthTech, FinTech, DevTools"
-            className="w-full bg-brand-bg/50 border border-brand-border rounded-lg px-4 py-2.5 text-sm font-sans focus:outline-none focus:border-brand-orange focus:bg-brand-bg transition-colors"
+            placeholder="e.g. Web dev , AI-ML , Data Science"
+            className="w-full bg-brand-bg/50 border border-brand-border rounded-lg px-4 py-2.5 text-sm font-sans focus:outline-none focus:border-brand-blue focus:bg-brand-bg transition-colors"
           />
         </div>
 
@@ -137,7 +137,7 @@ export default function SubmissionForm({ weekNumber, onSubmitSuccess }: Submissi
               value={githubLink}
               onChange={(e) => setGithubLink(e.target.value)}
               placeholder="https://github.com/username/repo"
-              className="w-full bg-brand-bg/50 border border-brand-border rounded-lg px-4 py-2.5 text-sm font-sans focus:outline-none focus:border-brand-orange focus:bg-brand-bg transition-colors"
+              className="w-full bg-brand-bg/50 border border-brand-border rounded-lg px-4 py-2.5 text-sm font-sans focus:outline-none focus:border-brand-blue focus:bg-brand-bg transition-colors"
             />
           </div>
 
@@ -152,7 +152,7 @@ export default function SubmissionForm({ weekNumber, onSubmitSuccess }: Submissi
               value={prototypeLink}
               onChange={(e) => setPrototypeLink(e.target.value)}
               placeholder="https://your-app.vercel.app"
-              className="w-full bg-brand-bg/50 border border-brand-border rounded-lg px-4 py-2.5 text-sm font-sans focus:outline-none focus:border-brand-orange focus:bg-brand-bg transition-colors"
+              className="w-full bg-brand-bg/50 border border-brand-border rounded-lg px-4 py-2.5 text-sm font-sans focus:outline-none focus:border-brand-blue focus:bg-brand-bg transition-colors"
             />
           </div>
         </div>
@@ -169,7 +169,7 @@ export default function SubmissionForm({ weekNumber, onSubmitSuccess }: Submissi
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Provide a 2-3 sentence overview of the problem you are solving and your tech stack."
-            className="w-full bg-brand-bg/50 border border-brand-border rounded-lg px-4 py-2.5 text-sm font-sans focus:outline-none focus:border-brand-orange focus:bg-brand-bg transition-colors resize-none"
+            className="w-full bg-brand-bg/50 border border-brand-border rounded-lg px-4 py-2.5 text-sm font-sans focus:outline-none focus:border-brand-blue focus:bg-brand-bg transition-colors resize-none"
           />
         </div>
 
@@ -177,7 +177,7 @@ export default function SubmissionForm({ weekNumber, onSubmitSuccess }: Submissi
         <button
           type="submit"
           disabled={loading}
-          className="w-full flex justify-center items-center gap-2 bg-brand-btn-dark hover:bg-brand-orange text-brand-bg font-sans font-bold text-xs py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+          className="w-full flex justify-center items-center gap-2 bg-brand-btn-dark hover:bg-brand-blue text-brand-bg font-sans font-bold text-xs py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
         >
           {loading ? (
             <>

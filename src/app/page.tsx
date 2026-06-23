@@ -5,6 +5,8 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState, Suspense } from "react";
 import { Sparkles, ShieldAlert, Loader2 } from "lucide-react";
 import { PROGRAM_CONFIG } from "@/config/program";
+import ThemeSelector from "@/components/ThemeSelector";
+import Image from "next/image";
 
 // Simple SVG for Google logo (multicolored)
 const GoogleIcon = () => (
@@ -52,42 +54,35 @@ function LoginForm() {
 
   if (status === "loading") {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center min-h-screen bg-brand-bg font-mono text-xs text-brand-muted">
-        <Loader2 className="animate-spin text-brand-orange mb-2" size={24} />
+      <div className="flex-1 flex flex-col items-center justify-center min-h-screen bg-transparent font-mono text-xs text-brand-muted">
+        <ThemeSelector theme="default" />
+        <Loader2 className="animate-spin text-brand-blue mb-2" size={24} />
         VERIFYING SESSION...
       </div>
     );
   }
 
   return (
-    <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8 bg-brand-bg relative overflow-hidden min-h-screen">
-      {/* Decorative Grid */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
-        style={{
-          backgroundImage: `radial-gradient(#BE6B24 1px, transparent 1.5px)`,
-          backgroundSize: '20px 20px',
-        }}
-      />
-
-      <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10">
+    <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8 bg-transparent relative overflow-hidden min-h-screen">
+      <ThemeSelector theme="default" />
+      <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10 font-sans">
         
         {/* ACM-W Logo */}
         <div className="flex justify-center mb-8">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-brand-border bg-brand-card">
-            <span className="font-mono text-xs tracking-widest text-brand-muted uppercase font-bold">
-              ACM-W
-            </span>
-            <span className="h-3 w-[1px] bg-brand-border" />
-            <span className="font-mono text-xs tracking-widest text-brand-orange uppercase font-bold">
-              SNU
-            </span>
-          </div>
+          <Image
+            src="/acmw-logo.png"
+            alt="ACM-W SNIoE Logo"
+            width={180}
+            height={66}
+            className="h-16 w-auto object-contain"
+            priority
+          />
         </div>
 
         {/* Card Wrapper */}
         <div className="bg-brand-card border border-brand-border rounded-3xl p-8 sm:p-10 shadow-sm relative overflow-hidden">
-          {/* Subtle Orange Accent Circle */}
-          <div className="absolute -top-12 -right-12 w-24 h-24 bg-brand-orange/5 rounded-full blur-xl pointer-events-none" />
+          {/* Subtle Blue Accent Circle */}
+          <div className="absolute -top-12 -right-12 w-24 h-24 bg-brand-blue/5 rounded-full blur-xl pointer-events-none" />
 
           {/* Heading */}
           <div className="text-center mb-8">
@@ -123,7 +118,7 @@ function LoginForm() {
           {/* Google Login Button */}
           <button
             onClick={handleGoogleLogin}
-            className="w-full flex items-center justify-center gap-1 bg-brand-btn-dark hover:bg-brand-orange text-brand-bg font-sans font-bold text-xs py-3.5 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer shadow-sm"
+            className="w-full flex items-center justify-center gap-1 bg-brand-btn-dark hover:bg-brand-blue text-brand-bg font-sans font-bold text-xs py-3.5 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer shadow-sm"
           >
             <GoogleIcon />
             Continue with Google
@@ -144,8 +139,9 @@ function LoginForm() {
 export default function LoginPage() {
   return (
     <Suspense fallback={
-      <div className="flex-1 flex flex-col items-center justify-center min-h-screen bg-brand-bg font-mono text-xs text-brand-muted">
-        <Loader2 className="animate-spin text-brand-orange mb-2" size={24} />
+      <div className="flex-1 flex flex-col items-center justify-center min-h-screen bg-transparent font-mono text-xs text-brand-muted">
+        <ThemeSelector theme="default" />
+        <Loader2 className="animate-spin text-brand-blue mb-2" size={24} />
         VERIFYING SESSION...
       </div>
     }>

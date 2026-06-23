@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import Timeline from "@/components/Timeline";
 import WeekTabs from "@/components/WeekTabs";
+import ThemeSelector from "@/components/ThemeSelector";
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions);
@@ -14,7 +15,8 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-brand-bg">
+    <div className="min-h-screen flex flex-col bg-transparent">
+      <ThemeSelector theme="home" />
       <Navbar />
       <main className="flex-grow">
         <HeroSection />
@@ -23,7 +25,7 @@ export default async function DashboardPage() {
       </main>
       <footer className="bg-brand-card border-t border-brand-border py-10 text-center relative z-10">
         <p className="font-mono text-[10px] text-brand-muted tracking-wider">
-          ACM-W SNU SUMMER BUILD PROGRAM 2026 • DESIGNED FOR IMPACT
+          ACM-W SNU BUILD ACCELERATOR 2026 • DESIGNED FOR IMPACT
         </p>
       </footer>
     </div>

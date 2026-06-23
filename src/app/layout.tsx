@@ -15,8 +15,8 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ACM-W Summer Build Program",
-  description: "A focused 4-week build challenge for SNU students. Learn, build, and submit projects in Web Dev, AI/ML, and Data Science.",
+  title: "ACM-W Build Accelerator 2026",
+  description: "A focused 4-week build accelerator for SNU students. Learn, build, and submit projects in Web Dev, AI/ML, and Data Science.",
   icons: {
     icon: "/favicon.ico",
   }
@@ -32,7 +32,7 @@ export default function RootLayout({
       lang="en"
       className={`${outfit.variable} ${spaceMono.variable} antialiased`}
     >
-      <body className="font-sans bg-brand-bg text-brand-text min-h-screen flex flex-col selection:bg-brand-orange/20">
+      <body className="font-sans bg-theme-default text-brand-text min-h-screen flex flex-col selection:bg-brand-blue/20">
         <Providers>
           {children}
         </Providers>

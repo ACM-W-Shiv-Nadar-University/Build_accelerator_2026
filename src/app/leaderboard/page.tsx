@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import LeaderboardTable from "@/components/LeaderboardTable";
 import { Trophy } from "lucide-react";
+import ThemeSelector from "@/components/ThemeSelector";
 
 export default async function LeaderboardPage() {
   const session = await getServerSession(authOptions);
@@ -13,22 +14,23 @@ export default async function LeaderboardPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-brand-bg">
+    <div className="min-h-screen flex flex-col bg-transparent">
+      <ThemeSelector theme="default" />
       <Navbar />
       <main className="flex-grow py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center p-3 bg-brand-orange/10 border border-brand-orange/20 rounded-full mb-4">
-              <Trophy className="text-brand-orange" size={24} />
+            <div className="inline-flex items-center justify-center p-3 bg-brand-blue/10 border border-brand-blue/20 rounded-full mb-4">
+              <Trophy className="text-brand-blue" size={24} />
             </div>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-brand-text tracking-tight mb-3">
               Program Leaderboard
             </h1>
             <p className="text-sm text-brand-muted max-w-lg mx-auto leading-relaxed">
-              Real-time standings for all participants in the ACM-W Summer Build Program. Rank calculations are based on weekly evaluation scores.
+              Real-time standings for all participants in the ACM-W Build Accelerator 2026. Rank calculations are based on weekly evaluation scores.
             </p>
-            <div className="w-12 h-1 bg-brand-orange mx-auto mt-4 rounded-full" />
+            <div className="w-12 h-1 bg-brand-blue mx-auto mt-4 rounded-full" />
           </div>
 
           {/* Table */}
@@ -37,7 +39,7 @@ export default async function LeaderboardPage() {
       </main>
       <footer className="bg-brand-card border-t border-brand-border py-8 text-center mt-auto">
         <p className="font-mono text-[10px] text-brand-muted tracking-wider">
-          ACM-W SNU SUMMER BUILD PROGRAM 2026 • WORK HARD, BUILD MORE
+          ACM-W SNU BUILD ACCELERATOR 2026 • WORK HARD, BUILD MORE
         </p>
       </footer>
     </div>

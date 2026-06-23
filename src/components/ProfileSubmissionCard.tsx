@@ -60,7 +60,7 @@ export default function ProfileSubmissionCard({ weekNumber, submission }: Profil
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-brand-border pb-4 mb-5">
         <div className="flex items-center gap-2">
-          <Calendar size={16} className="text-brand-orange" />
+          <Calendar size={16} className="text-brand-blue" />
           <h4 className="font-mono text-xs tracking-wider font-extrabold text-brand-text uppercase">
             Week 0{weekNumber} Submission
           </h4>
@@ -82,7 +82,7 @@ export default function ProfileSubmissionCard({ weekNumber, submission }: Profil
             <h5 className="font-sans font-bold text-lg text-brand-text mb-1">
               {submission.projectTitle}
             </h5>
-            <p className="font-mono text-xs text-brand-orange mb-3">
+            <p className="font-mono text-xs text-brand-blue mb-3">
               Domain: {submission.projectDomain}
             </p>
             <p className="text-xs sm:text-sm text-brand-muted leading-relaxed font-sans">
@@ -97,7 +97,7 @@ export default function ProfileSubmissionCard({ weekNumber, submission }: Profil
                 href={submission.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs font-mono tracking-wider font-bold text-brand-text hover:text-brand-orange transition-colors"
+                className="flex items-center gap-1.5 text-xs font-mono tracking-wider font-bold text-brand-text hover:text-brand-blue transition-colors"
               >
                 <GithubIcon size={14} />
                 GITHUB REPOSITORY
@@ -109,7 +109,7 @@ export default function ProfileSubmissionCard({ weekNumber, submission }: Profil
                 href={submission.prototypeLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs font-mono tracking-wider font-bold text-brand-text hover:text-brand-orange transition-colors"
+                className="flex items-center gap-1.5 text-xs font-mono tracking-wider font-bold text-brand-text hover:text-brand-blue transition-colors"
               >
                 <Globe size={14} />
                 LIVE PROTOTYPE
@@ -123,7 +123,7 @@ export default function ProfileSubmissionCard({ weekNumber, submission }: Profil
               <span className="font-mono text-[10px] tracking-wider text-brand-muted uppercase font-bold">
                 Evaluation Score
               </span>
-              <span className="font-mono text-sm font-extrabold text-brand-orange">
+              <span className="font-mono text-sm font-extrabold text-brand-blue">
                 {submission.score} / 100
               </span>
             </div>

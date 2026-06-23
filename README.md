@@ -1,6 +1,6 @@
-# 🚀 ACM-W Summer Build Program Portal
+# 🚀 ACM-W Build Accelerator 2026 Portal
 
-Welcome to the official web portal for the **ACM-W SNU Summer Build Program**. This platform enables participants to log in with their university credentials, submit weekly project builds, track their status, and view the global leaderboard.
+Welcome to the official web portal for the **ACM-W SNU Build Accelerator 2026**. This platform enables participants to log in with their university credentials, submit weekly project builds, track their status, and view the global leaderboard.
 
 The application is built with **Next.js** and integrates with **Google OAuth** for authentication and **Google Sheets API** as a lightweight, real-time database.
 
@@ -43,7 +43,7 @@ This enables secure sign-in, restricting access to SNU email domains (`@snu.edu.
 1. **Create a Google Cloud Project:**
    - Go to the [Google Cloud Console](https://console.cloud.google.com/).
    - Click the project dropdown at the top of the screen and select **"New Project"**.
-   - Name your project (e.g., `snu-acmw-summer-build`) and click **"Create"**.
+   - Name your project (e.g., `snu-acmw-build-accelerator`) and click **"Create"**.
    - Make sure your new project is selected in the top dropdown.
 
 2. **Configure the OAuth Consent Screen:**
@@ -53,7 +53,7 @@ This enables secure sign-in, restricting access to SNU email domains (`@snu.edu.
      - **External:** Anyone with a Google account can sign in (our application code will still filter out non-SNU emails).
    - Click **"Create"**.
    - Fill in the required fields:
-     - **App name:** `ACM-W Summer Build Program`
+     - **App name:** `ACM-W Build Accelerator 2026`
      - **User support email:** Select your email.
      - **Developer contact information:** Enter your email.
    - Click **"Save and Continue"**.

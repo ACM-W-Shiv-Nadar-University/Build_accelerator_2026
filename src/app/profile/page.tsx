@@ -6,6 +6,7 @@ import ProfileSubmissionCard from "@/components/ProfileSubmissionCard";
 import { getSubmissions } from "@/lib/sheets";
 import Image from "next/image";
 import { User } from "lucide-react";
+import ThemeSelector from "@/components/ThemeSelector";
 
 export default async function ProfilePage() {
   const session = await getServerSession(authOptions);
@@ -21,12 +22,13 @@ export default async function ProfilePage() {
   );
 
   // Match submissions to respective weeks
-  const week1Submission = userSubmissions.find((s) => s.week === 1);
   const week2Submission = userSubmissions.find((s) => s.week === 2);
   const week3Submission = userSubmissions.find((s) => s.week === 3);
+  const week4Submission = userSubmissions.find((s) => s.week === 4);
 
   return (
-    <div className="min-h-screen flex flex-col bg-brand-bg">
+    <div className="min-h-screen flex flex-col bg-transparent">
+      <ThemeSelector theme="default" />
       <Navbar />
       
       <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8">
@@ -43,7 +45,7 @@ export default async function ProfilePage() {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <User size={32} className="text-brand-orange" />
+                <User size={32} className="text-brand-blue" />
               )}
             </div>
 
@@ -52,7 +54,7 @@ export default async function ProfilePage() {
               <h2 className="text-xl sm:text-2xl font-extrabold text-brand-text">
                 {session.user.name || "SNU Student"}
               </h2>
-              <p className="font-mono text-xs text-brand-orange tracking-wider">
+              <p className="font-mono text-xs text-brand-blue tracking-wider">
                 {session.user.email}
               </p>
               <div className="inline-flex items-center gap-1.5 pt-1.5">
@@ -76,9 +78,9 @@ export default async function ProfilePage() {
             </div>
 
             <div className="grid grid-cols-1 gap-6">
-              <ProfileSubmissionCard weekNumber={1} submission={week1Submission} />
               <ProfileSubmissionCard weekNumber={2} submission={week2Submission} />
               <ProfileSubmissionCard weekNumber={3} submission={week3Submission} />
+              <ProfileSubmissionCard weekNumber={4} submission={week4Submission} />
             </div>
           </div>
 
@@ -87,7 +89,7 @@ export default async function ProfilePage() {
 
       <footer className="bg-brand-card border-t border-brand-border py-8 text-center mt-auto">
         <p className="font-mono text-[10px] text-brand-muted tracking-wider">
-          ACM-W SNU SUMMER BUILD PROGRAM 2026 • PROFILE & SUBMISSIONS
+          ACM-W SNU BUILD ACCELERATOR 2026 • PROFILE & SUBMISSIONS
         </p>
       </footer>
     </div>

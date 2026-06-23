@@ -9,11 +9,11 @@ import ProjectRankCard from "./ProjectRankCard";
 import SubmissionForm from "./SubmissionForm";
 
 export default function WeekTabs() {
-  const [activeTab, setActiveTab] = useState<number>(0);
+  const [activeTab, setActiveTab] = useState<number>(1);
   const [bestProjects, setBestProjects] = useState<{ [week: number]: Submission[] }>({
-    1: [],
     2: [],
-    3: []
+    3: [],
+    4: []
   });
   const [loading, setLoading] = useState(true);
 
@@ -23,7 +23,7 @@ export default function WeekTabs() {
       const res = await fetch("/api/leaderboard");
       if (res.ok) {
         const data = await res.json();
-        setBestProjects(data.bestProjects || { 1: [], 2: [], 3: [] });
+        setBestProjects(data.bestProjects || { 2: [], 3: [], 4: [] });
       }
     } catch (err) {
       console.error("Error fetching ranked projects:", err);
@@ -45,12 +45,12 @@ export default function WeekTabs() {
   const activeWeekData = PROGRAM_CONFIG.weeks.find((w) => w.number === activeTab);
 
   return (
-    <section id="weeks" className="py-20 bg-brand-bg">
+    <section id="weeks" className="py-20 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center mb-12">
-          <p className="font-mono text-xs tracking-widest text-brand-orange uppercase mb-3 font-bold">
+          <p className="font-mono text-xs tracking-widest text-brand-blue uppercase mb-3 font-bold">
             CURRICULUM
           </p>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-text tracking-tight">
@@ -59,7 +59,7 @@ export default function WeekTabs() {
           <p className="text-sm text-brand-muted max-w-md mx-auto mt-3">
             Click on the tabs below to view resources, review problem statements, and submit projects.
           </p>
-          <div className="w-12 h-1 bg-brand-orange mx-auto mt-4 rounded-full" />
+          <div className="w-12 h-1 bg-brand-blue mx-auto mt-4 rounded-full" />
         </div>
 
         {/* Tab Buttons Row */}
@@ -82,7 +82,7 @@ export default function WeekTabs() {
                 }`}
                 title={!unlocked ? `Unlocks on ${week.unlockDate}` : ""}
               >
-                {!unlocked ? <Lock size={12} /> : isActive ? <Unlock size={12} className="text-brand-orange" /> : <Unlock size={12} />}
+                {!unlocked ? <Lock size={12} /> : isActive ? <Unlock size={12} className="text-brand-blue" /> : <Unlock size={12} />}
                 WEEK 0{week.number}
               </button>
             );
@@ -91,13 +91,13 @@ export default function WeekTabs() {
 
         {/* Tab Content Area */}
         {activeWeekData && (
-          <div className="bg-brand-bg animate-fade-in">
+          <div className="bg-transparent animate-fade-in">
             
             {/* Week Overview Header */}
             <div className="border border-brand-border rounded-2xl bg-brand-card p-6 sm:p-8 mb-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-brand-orange/5 to-transparent pointer-events-none" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-brand-blue/5 to-transparent pointer-events-none" />
               <div className="max-w-3xl">
-                <span className="font-mono text-[10px] tracking-widest text-brand-orange uppercase font-bold">
+                <span className="font-mono text-[10px] tracking-widest text-brand-blue uppercase font-bold">
                   {activeWeekData.theme}
                 </span>
                 <h3 className="font-sans font-bold text-2xl sm:text-3xl text-brand-text mt-2 mb-4">
@@ -109,14 +109,14 @@ export default function WeekTabs() {
               </div>
             </div>
 
-            {/* Week 0 specific Content: Resource columns */}
-            {activeTab === 0 && activeWeekData.resourceSections && (
+            {/* Week 1 specific Content: Resource columns */}
+            {activeTab === 1 && activeWeekData.resourceSections && (
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {activeWeekData.resourceSections.map((section, sIdx) => (
                   <div key={sIdx} className="border border-brand-border bg-brand-bg rounded-2xl p-6 flex flex-col">
                     {/* Section Header */}
                     <div className="flex items-center gap-2 pb-4 mb-6 border-b border-brand-border">
-                      <BookOpen size={16} className="text-brand-orange" />
+                      <BookOpen size={16} className="text-brand-blue" />
                       <h4 className="font-mono text-xs tracking-wider font-extrabold text-brand-text uppercase">
                         {section.title}
                       </h4>
@@ -132,8 +132,8 @@ export default function WeekTabs() {
               </div>
             )}
 
-            {/* Week 1, 2, 3 specific Content: Problems, Form, Best Projects */}
-            {activeTab > 0 && (
+            {/* Week 2, 3, 4 specific Content: Problems, Form, Best Projects */}
+            {activeTab > 1 && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
                 {/* Left side: Problem Statements & Submission Form */}
@@ -142,7 +142,7 @@ export default function WeekTabs() {
                   {activeWeekData.problems && (
                     <div className="border border-brand-border rounded-2xl bg-brand-card p-6">
                       <div className="flex items-center gap-2 mb-4">
-                        <HelpCircle size={16} className="text-brand-orange" />
+                        <HelpCircle size={16} className="text-brand-blue" />
                         <h4 className="font-mono text-xs tracking-wider font-extrabold text-brand-text uppercase">
                           Example Problem Statements
                         </h4>
@@ -150,7 +150,7 @@ export default function WeekTabs() {
                       <ul className="space-y-3">
                         {activeWeekData.problems.map((prob, pIdx) => (
                           <li key={pIdx} className="flex items-start gap-2.5 text-xs text-brand-muted leading-relaxed font-sans">
-                            <span className="h-1.5 w-1.5 rounded-full bg-brand-orange mt-1.5 flex-shrink-0" />
+                            <span className="h-1.5 w-1.5 rounded-full bg-brand-blue mt-1.5 flex-shrink-0" />
                             {prob}
                           </li>
                         ))}
@@ -166,7 +166,7 @@ export default function WeekTabs() {
                 <div className="lg:col-span-5 space-y-6">
                   <div className="border border-brand-border rounded-2xl bg-brand-card p-6">
                     <div className="flex items-center gap-2 mb-6 border-b border-brand-border pb-4">
-                      <Sparkles size={16} className="text-brand-orange animate-pulse" />
+                      <Sparkles size={16} className="text-brand-blue animate-pulse" />
                       <h4 className="font-mono text-xs tracking-wider font-extrabold text-brand-text uppercase">
                         Best Projects of Week {activeTab}
                       </h4>

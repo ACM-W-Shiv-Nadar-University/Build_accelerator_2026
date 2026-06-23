@@ -46,9 +46,9 @@ export default function ProjectRankCard({ project }: { project: Submission }) {
     }
   }[rank as 1 | 2 | 3] || {
     label: `RANK ${rank}`,
-    bgClass: "bg-brand-orange/10 text-brand-orange border-brand-orange/20",
+    bgClass: "bg-brand-blue/10 text-brand-blue border-brand-blue/20",
     borderClass: "border-brand-border",
-    accentDot: "bg-brand-orange"
+    accentDot: "bg-brand-blue"
   };
 
   return (
@@ -65,7 +65,7 @@ export default function ProjectRankCard({ project }: { project: Submission }) {
           
           {/* Score Badge */}
           {project.score !== null && (
-            <span className="font-mono text-xs text-brand-orange font-bold">
+            <span className="font-mono text-xs text-brand-blue font-bold">
               SCORE: {project.score}/100
             </span>
           )}
@@ -77,7 +77,7 @@ export default function ProjectRankCard({ project }: { project: Submission }) {
         </h4>
         
         {/* Project Domain */}
-        <p className="font-mono text-xs text-brand-orange mb-3 font-semibold">
+        <p className="font-mono text-xs text-brand-blue mb-3 font-semibold">
           Domain: {project.projectDomain}
         </p>
 
