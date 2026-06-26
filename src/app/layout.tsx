@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "ACM-W Build Accelerator 2026",
   description: "A focused 4-week build accelerator for SNU students. Learn, build, and submit projects in Web Dev, AI/ML, and Data Science.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/acmw-logo.png",
   }
 };
 
